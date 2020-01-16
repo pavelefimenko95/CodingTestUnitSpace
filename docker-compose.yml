@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    container_name: CodingTestUnitSpace
+    restart: always
+    build: .
+    ports:
+    ports:
+      - '3000:3000'
+    links:
+      - mysql
+  mysql:
+    container_name: CodingTestUnitSpaceMySQL
+    image: mysql
+    environment:
+          MYSQL_DATABASE: appDb
+          MYSQL_USER: user
+          MYSQL_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
